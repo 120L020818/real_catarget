@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<link rel="stylesheet" href="css/login.css"/>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module" src="assets/register.js"></script>
+<body class="beg-login-bg">
+
+<!--onSubmit="return check_code()"只有满足这个函数才能注册成功-->
+<form onSubmit="return check_code()">
+    <div id="app1">
+        <!--required限定必须填不能为空-->
+        <br>
+        <label>用户名</label><input type="text" required name="name" placeholder="请输入用户名:" class="input"><br>
+        <br>
+        <label>性别</label><input type="radio" name="sex" value="man" checked="true"> 男
+        <input type="radio" name="sex" value="woman"> 女 <br>
+        <br>
+        <label>密码</label><input type="password" id='pwd' name="pwd" required nBlur="check();"
+                                  placeholder="请输入密码:" class="input"><br>
+        <div class="show"><span>弱</span><span>中</span><span>强</span></div>
+        <br>
+        <label>生日</label><input type="date" value="1980-01-01" class="input"><br>
+        <br>
+        <label>手机号</label><input type="text" placeholder="请输入手机号:" required pattern="^1[3456789]\d{9}$"
+                                    title="手机号格式错误了!" class="input"><br>
+        <br>
+        <label>邮箱</label><input name="email" type="email" required placeholder="请输入邮箱:" class="input"><br>
+        <br>
+
+        <label onclick="sendMyEmail()" class="change" title="点我发送验证邮件~">e-验证</label><input name="emailcode" type="text" required placeholder="请输入邮箱验证码:" class="input"><br>
+        <br>
+
+        <label>验证码</label><input type="text" id="inputCode" placeholder="请输入验证码:" class="input"><br>
+
+        <div id="checkCode" class="code" onclick="createCode(5)" title="点我更换验证码~"></div>
+
+        <br>
+        <br>
+        <div class="checkbox"><input type="checkbox" id="checkbox" onclick="element.disabled=true"
+                                     style="margin-right: 10px;">我已阅读并接受<a href="/images/agreement.html"
+                                                                                  target="_blank">《天际CA使用须知》</a>
+        </div>
+        <button id="register" input type="submit">立即注册</button>
+
+
+<!--        todo 邮件验证功能-->
+<!--        <form type="hidden" id="contact-form">-->
+<!--            <input type="hidden" name="toEmail">-->
+<!--            <input type="hidden" name="toName">-->
+<!--            <input type="hidden" name="yourCaptcha">-->
+<!--        </form>-->
+
+    </div>
+    </div>
+</form>
+</body>
+
+<!--        todo 邮件验证功能-->
+<!--<script src="node_modules/@emailjs/browser/dist/email.min.js">-->
+<!--    var PUBLIC_KEY= 'Ah9pgZc0fPnTiIOyO';-->
+<!--    var PRIVATE_KEY= 'OuROEzpCb4Yr7bPdTQK38';-->
+<!--    var TEMPLATE_ID= 'template_27e2rqx';-->
+<!--    var sendMyEmail = function () {-->
+<!--        var code = "";-->
+<!--        var codeLength = 6;-->
+<!--        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,-->
+<!--            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',-->
+<!--            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');-->
+<!--        for (var i = 0; i < codeLength; i++) {-->
+<!--            var charNum = Math.floor(Math.random() * 62);-->
+<!--            code += codeChars[charNum];-->
+<!--        }-->
+<!--        emailjs.init(PUBLIC_KEY);-->
+<!--        document.getElementById('contact-form').addEventListener('submit', function(event) {-->
+<!--            event.preventDefault();-->
+<!--            this.toEmail.value = '835766751@qq.com';-->
+<!--            this.toName.value = '刻晴';-->
+<!--            this.yourCaptcha.value = code;-->
+<!--            emailjs.sendForm('contact_service', 'contact_form', this)-->
+<!--                .then(function() {-->
+<!--                    console.log('SUCCESS!');-->
+<!--                }, function(error) {-->
+<!--                    console.log('FAILED...', error);-->
+<!--                });-->
+<!--    });-->
+<!--    }-->
+<!--</script>-->
+
+
+<!--以下为样式-->>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    /*协议链接颜色*/
+    a {
+        color: lightblue;
+        text-decoration: none;
+    }
+
+    /*!*整体样式，主要包括背景字体字体颜色等*!*/
+    /*body {*/
+    /*    font-family: "微软雅黑";*/
+    /*    background-size: 100% 100%;*/
+    /*    background: url(images/bg.png) no-repeat fixed;*/
+    /*    color: white;*/
+    /*}*/
+
+    #app1 {
+        height: 800px;
+        width: 500px;
+        text-align: center;
+        margin: 20px auto;
+        font-size: 20px;
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 10px
+    }
+
+    label {
+        display: inline-block;
+        width: 70px;
+        height: 38px;
+        text-align: center;
+    }
+
+    /*输入框样式*/
+    .input {
+        font-family: "微软雅黑";
+        width: 200px;
+        height: 38px;
+        border-radius: 4px;
+    }
+
+    /*协议框样式*/
+    .checkbox {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+
+    /*注册按钮样式*/
+    #register {
+        font-family: "微软雅黑";
+        width: 270px;
+        height: 38px;
+        border-radius: 5px;
+        background: pink;
+        border: 1px solid silver;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    /* #btn{width: 50px;height: 30px;display: inline-block;float: right;margin-right: 15px;} */
+    /*以下是密码三个强度对应的颜色*/
+    .default {
+        background: #eeeeee;
+    }
+
+    .weak {
+        background: #FF0000;
+    }
+
+    .medium {
+        background: #FF9900;
+    }
+
+    .strong {
+        background: #33CC00;
+    }
+
+    /*.show使密码强度整个部分向右移动 span是密码强度框的样式*/
+    .show {
+        margin-left: 65px;
+    }
+
+    span {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        background: #ddd;
+        text-align: center;
+        margin: 7px 4px;
+    }
+
+    .code{
+        /*验证码样式*/
+        font-family: "Aa新华墨竹体 (非商业使用)";
+        font-style: italic;
+        color: rgb(255, 255, 255,0.7);
+        font-size: 35px;
+        border: 0;
+        margin-left: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* padding:2px 3px; */
+        letter-spacing: 3px;
+        font-weight: bolder;
+        float: left;
+        cursor: pointer;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        /* vertical-align:middle; */
+        background-color: gray;
+    }
+
+    /*更换验证码-文字样式*/
+    .change {
+        text-decoration: none;
+        font-size: 14px;
+        color: #555c5c;
+        /* padding-left:20px; */
+        margin-top: 20px;
+    }
+
+    /*更换验证码-鼠标点击文字样式*/
+    .change:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        message:"点我发送邮件验证码~";
+    }
+</style>
+</html>

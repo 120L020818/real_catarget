@@ -7,37 +7,50 @@
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/login.css"/>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/register.js"></script>
 </head>
-<script>$('[data-attr="show-password"]').password({
-    placement: 'before',
-    eyeClass: 'material-icons',
-    eyeOpenClass: 'visibility',
-    eyeCloseClass: 'visibility_off',
-    eyeClassPositionInside: true,
-    message: '点击隐藏或显示密码'
-})</script>
-
 <body class="beg-login-bg">
 <div class="beg-top-title">欢迎使用天际CA系统！</div>
 <div class="beg-login-box">
-    <form class="form-login-button">
+    <form class="form-login-button" role="form">
         <div class="input-group mb-3" style="margin-top: 20px">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-            <input type="text" class="form-control" placeholder="请输入用户名:" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="请输入用户名:" aria-label="Username"
+                   aria-describedby="basic-addon1" name="username">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon2"><i class="bi bi-key"></i></span>
-            <input type="password" class="form-control" placeholder="请输入密码:" aria-label="PassWord" aria-describedby="basic-addon2">
+            <input type="password" class="form-control" placeholder="请输入密码:" aria-label="PassWord"
+                   aria-describedby="basic-addon2" name="password">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon3"><i class="bi bi-pass"></i></span>
-            <input type="text" class="form-control" placeholder="请输入验证码:" aria-label="Username" aria-describedby="basic-addon3">
+            <input type="text" class="form-control" placeholder="请输入验证码:" aria-label="Username"
+                   aria-describedby="basic-addon3" name="captcha">
         </div>
-        <button type="button" class="btn btn-primary btn-lg" style="margin-left: 0">登陆</button>
-        <button type="button" class="btn btn-primary btn-lg" style="margin-left: 200px">注册</button>
 
+        <div id="checkCode" class="code" onclick="createCode(5)"></div>
+
+        <br>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary btn-lg" onsubmit="checkLogin()" style="margin-left: 0">登陆</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="navigate()" style="margin-left: 100px">注册</button>
+        </div>
     </form>
 </div>
 
 </body>
 </html>
+
+<script>
+    var navigate=function (){
+        setTimeout(function () {
+            location.href = 'register.html';
+        }, 100);
+    }
+    var checkLogin=function (event){
+        console.log(event);
+    }
+
+</script>
+

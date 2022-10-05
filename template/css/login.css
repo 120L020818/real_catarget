@@ -1,6 +1,6 @@
 .beg-login-box {
 	width: 450px;
-	height: 250px;
+	height: 300px;
 	margin: 10% auto;
 	background-color: rgba(255, 255, 255, 0.9);
 	border-radius: 10px;
@@ -25,6 +25,29 @@
 	background-color: rgba(255, 255, 255, 0.7);
 
 }
+
+.code{
+/*验证码样式*/
+	font-family: "Aa新华墨竹体 (非商业使用)";
+	font-style: italic;
+	color: rgb(255, 255, 255,0.7);
+	font-size: 35px;
+	border: 0;
+	margin-left: 55px;
+	margin-bottom: 10px;
+	/* padding:2px 3px; */
+	letter-spacing: 3px;
+	font-weight: bolder;
+	float: left;
+	cursor: pointer;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	/* vertical-align:middle; */
+	background-color: gray;
+}
+
 
 .form-login-button{
 	display: table;
