@@ -6,8 +6,17 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/login.css"/>
-
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 </head>
+<script>$('[data-attr="show-password"]').password({
+    placement: 'before',
+    eyeClass: 'material-icons',
+    eyeOpenClass: 'visibility',
+    eyeCloseClass: 'visibility_off',
+    eyeClassPositionInside: true,
+    message: '点击隐藏或显示密码'
+})</script>
+
 <body class="beg-login-bg">
 <div class="beg-top-title">欢迎使用天际CA系统！</div>
 <div class="beg-login-box">
@@ -18,7 +27,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon2"><i class="bi bi-key"></i></span>
-            <input type="text" class="form-control" placeholder="请输入密码:" aria-label="PassWord" aria-describedby="basic-addon2">
+            <input type="password" class="form-control" placeholder="请输入密码:" aria-label="PassWord" aria-describedby="basic-addon2">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon3"><i class="bi bi-pass"></i></span>
