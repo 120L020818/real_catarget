@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>注册</title>
 </head>
-<link rel="stylesheet" href="css/login.css"/>
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script type="module" src="assets/register.js"></script>
+<link rel="stylesheet" href="../static/css/login.css"/>
+<script src="../static/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module" src="../static/assets/register.js"></script>
 <body class="beg-login-bg">
 
 <!--onSubmit="return check_code()"只有满足这个函数才能注册成功-->
@@ -36,10 +36,12 @@
 
         <label>验证码</label><input type="text" id="inputCode" placeholder="请输入验证码:" class="input"><br>
 
-        <div id="checkCode" class="code" onclick="createCode(5)" title="点我更换验证码~"></div>
+        <div id="checkCode" class="code" onclick="createCode(5)" title="点我更换验证码~" ></div>
 
         <br>
         <br>
+        <br>
+
         <div class="checkbox"><input type="checkbox" id="checkbox" onclick="element.disabled=true"
                                      style="margin-right: 10px;">我已阅读并接受<a href="/images/agreement.html"
                                                                                   target="_blank">《天际CA使用须知》</a>

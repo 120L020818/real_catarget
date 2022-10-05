@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/login.css"/>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="assets/register.js"></script>
+    <link rel="stylesheet" href="../static/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/css/login.css"/>
+    <script src="../static/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../static/assets/register.js"></script>
 </head>
 <body class="beg-login-bg">
 <div class="beg-top-title">欢迎使用天际CA系统！</div>
@@ -45,7 +45,7 @@
 <script>
     var navigate=function (){
         setTimeout(function () {
-            location.href = 'register.html';
+            location.href = '../template/register.html';
         }, 100);
     }
     var checkLogin=function (event){
