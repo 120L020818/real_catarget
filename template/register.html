@@ -6,9 +6,8 @@
 </head>
 <link rel="stylesheet" href="../static/css/login.css"/>
 <script src="../static/node_modules/jquery/dist/jquery.min.js"></script>
-<script type="module" src="../static/assets/register.js"></script>
+<script src="../static/assets/register.js"></script>
 <body class="beg-login-bg">
-
 <!--onSubmit="return check_code()"只有满足这个函数才能注册成功-->
 <form onSubmit="return check_code()">
     <div id="app1">
@@ -43,11 +42,10 @@
         <br>
 
         <div class="checkbox"><input type="checkbox" id="checkbox" onclick="element.disabled=true"
-                                     style="margin-right: 10px;">我已阅读并接受<a href="/images/agreement.html"
+                                     style="margin-right: 10px;">我已阅读并接受<a href="/agreement/"
                                                                                   target="_blank">《天际CA使用须知》</a>
         </div>
         <button id="register" input type="submit">立即注册</button>
-
 
 <!--        todo 邮件验证功能-->
 <!--        <form type="hidden" id="contact-form">-->
@@ -57,10 +55,9 @@
 <!--        </form>-->
 
     </div>
-    </div>
 </form>
 </body>
-
+</html>
 <!--        todo 邮件验证功能-->
 <!--<script src="node_modules/@emailjs/browser/dist/email.min.js">-->
 <!--    var PUBLIC_KEY= 'Ah9pgZc0fPnTiIOyO';-->
